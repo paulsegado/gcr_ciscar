@@ -414,8 +414,8 @@ class IndividuControler {
 
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_ACCOUNT_BODY_1' );
 						$msg = $aParam->getValue ();
-						$msg .= 'Nom d\'utilisateur : ' . $aIndividu->getLogin () . '<br/>';
-						$msg .= 'Mot de passe : ' . $aIndividu->getPassword () . '<br/>';
+						//$msg .= 'Nom d\'utilisateur : ' . $aIndividu->getLogin () . '<br/>';
+						//$msg .= 'Mot de passe : ' . $aIndividu->getPassword () . '<br/>';
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_ACCOUNT_BODY_2' );
 						$msg .= $aParam->getValue ();
 
@@ -450,8 +450,8 @@ class IndividuControler {
 
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_BODY_1' );
 						$msg = $aParam->getValue ();
-						$msg .= 'Nom d\'utilisateur / Gebruikersnaam :  ' . $aIndividu->getLogin () . '<br/>';
-						$msg .= 'Mot de passe / Paswoord : ' . $aIndividu->getPassword () . '<br/>';
+						//$msg .= 'Nom d\'utilisateur / Gebruikersnaam :  ' . $aIndividu->getLogin () . '<br/>';
+						//$msg .= 'Mot de passe / Paswoord : ' . $aIndividu->getPassword () . '<br/>';
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_BODY_2' );
 						$msg .= $aParam->getValue ();
 
@@ -842,8 +842,8 @@ class IndividuControler {
 
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_LOGIN_BODY_1' );
 						$msg = $aParam->getValue ();
-						$msg .= 'Nom d\'utilisateur : ' . $aIndividu->getLogin () . '<br/>';
-						$msg .= 'Mot de passe : ' . $aIndividu->getPassword () . '<br/>';
+						//$msg .= 'Nom d\'utilisateur : ' . $aIndividu->getLogin () . '<br/>';
+						//$msg .= 'Mot de passe : ' . $aIndividu->getPassword () . '<br/>';
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_LOGIN_BODY_2' );
 						$msg .= $aParam->getValue ();
 
@@ -877,8 +877,8 @@ class IndividuControler {
 
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_BODY_1' );
 						$msg = $aParam->getValue ();
-						$msg .= 'Nom d\'utilisateur / Gebruikersnaam :  ' . $aIndividu->getLogin () . '<br/>';
-						$msg .= 'Mot de passe / Paswoord : ' . $aIndividu->getPassword () . '<br/>';
+						//$msg .= 'Nom d\'utilisateur / Gebruikersnaam :  ' . $aIndividu->getLogin () . '<br/>';
+						//$msg .= 'Mot de passe / Paswoord : ' . $aIndividu->getPassword () . '<br/>';
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_BODY_2' );
 						$msg .= $aParam->getValue ();
 
