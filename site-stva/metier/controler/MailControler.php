@@ -25,7 +25,7 @@ class MailControler
 		$listIndivID = explode(",",$_POST ['listIndivID'] );
 		$listIndivID = array_unique ( $listIndivID );
 
-		$msgMail = 'Une autorisation d\'accès à STVA a été demandée par ' .$_SESSION ['SITE'] ['DEMANDEUR'].'<br><br>'. $passage_ligne;
+		$msgMail = 'Une autorisation d\'acc&egrave;s &agrave; e-cattransport a &eacute;t&eacute; demand&eacute;e par ' .$_SESSION ['SITE'] ['DEMANDEUR'].'<br><br>'. $passage_ligne;
 		$msgMail .= 'Pour le compte ' .$_GET['login']. '<br>'. $passage_ligne;
 		$count = 0;
 		$abackColor = '#ededed';
@@ -34,7 +34,7 @@ class MailControler
 			$pos = strpos($id,'new-');
 			if ($pos === false)
 			{				
-				// on active l'acces STVA sur les individus cochés
+				// on active l'acces STVA sur les individus cochï¿½s
 				if (isset ($_POST[$id]))
 				{
 					$count += 1;
@@ -46,7 +46,7 @@ class MailControler
 						$msgMail .= "<tr align=left style='background-color:#000000;color:white;'>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Id</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Nom</td>" . $passage_ligne;
-						$msgMail .= "<td style='font-weight:bold;'>Prénom</td>" . $passage_ligne;
+						$msgMail .= "<td style='font-weight:bold;'>Prï¿½nom</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Login</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Statut</td>" . $passage_ligne;
 						$msgMail .= "</tr>" . $passage_ligne;
@@ -106,13 +106,13 @@ class MailControler
 					{
 						$msgMail .=  '<br>';
 						$msgMail .=  '<br>';
-						$msgMail .= 'Une autorisation d\'accès à STVA a été demandée pour les personnes suivantes :'. $passage_ligne;
+						$msgMail .= 'Une autorisation d\'acc&egrave;s &aacute; E-CATTRANSPORT a &eacute;t&eacute; demand&eacute;e pour les personnes suivantes :'. $passage_ligne;
 						$msgMail .= '<br>';
 						$msgMail .= "<table cellspacing=0 cellpadding=3 style='font-size: x-small;font-family:Arial;color:grey;'>" . $passage_ligne;
 						$msgMail .= "<tr align=left style='background-color:#000000;color:white;'>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Civ</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Nom</td>" . $passage_ligne;
-						$msgMail .= "<td style='font-weight:bold;'>Prénom</td>" . $passage_ligne;
+						$msgMail .= "<td style='font-weight:bold;'>Prï¿½nom</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Mail</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Tel</td>" . $passage_ligne;
 						$msgMail .= "<td style='font-weight:bold;'>Fonction</td>" . $passage_ligne;
@@ -144,7 +144,7 @@ class MailControler
 					$msgMail .= "</td>" . $passage_ligne;
 						
 					$tabIndividuId = $aSimple_LCAGroupeMembre->SQL_SELECT_IndividuID_By_Email ( $_POST[$mail] );
-					//Pour les individus trouvés, on active l'accès à STVA'
+					//Pour les individus trouvï¿½s, on active l'accï¿½s ï¿½ STVA'
 					if (count($tabIndividuId) > 0)
 					{
 						$msgMail .= "<td style='font-weight:bold;color:#088f04'>";
@@ -178,7 +178,7 @@ class MailControler
 				{
 					$msgMail .=  '<br>';
 					$msgMail .=  '<br>';
-					$msgMail .= 'Une demande de création a été demandée pour les établissements suivants :'. $passage_ligne;
+					$msgMail .= 'Une demande de crï¿½ation a ï¿½tï¿½ demandï¿½e pour les ï¿½tablissements suivants :'. $passage_ligne;
 					$msgMail .= '<br>';
 					$msgMail .= "<table cellspacing=0 cellpadding=3 style='font-size: x-small;font-family:Arial;color:grey;'>" . $passage_ligne;
 					$msgMail .= "<tr align=left style='background-color:#000000;color:white;'>" . $passage_ligne;

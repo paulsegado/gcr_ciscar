@@ -13,7 +13,7 @@ class ResponsiveRedirectionView {
 		$aff .= '<head>';
 		$aff .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">';
 		$aff .= '<meta name="viewport" content="width=device-width,initial-scale=1">';
-		$aff .= '<title>Acc&egrave;s STVA</title>';
+		$aff .= '<title>Acc&egrave;s e-cattransport</title>';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">';
@@ -29,7 +29,7 @@ class ResponsiveRedirectionView {
 		$aff .= '#wrapper{margin:0px auto;background:#FFFFFF ;text-align:center;border:0px solid #000000;padding-top:1px;margin-top:2px;box-shadow: 0px 1px 30px 3px rgba(0, 0, 0, 0.7); border-radius:2px;}';
 		
 		$aff .= '#wrapper #header{margin:15px auto;background:transparent ;text-align:center;border:0px solid #000000;}';
-		$aff .= '#wrapper #menu{background:transparent url(\'include/images/stva-home.jpg\') no-repeat center center;text-align:center;padding-top:40px;padding-bottom:80px;height:auto;border:0px solid #000000;}';
+		$aff .= '#wrapper #menu{background:transparent url(\'include/images/bg-home.jpg\') no-repeat center center;text-align:center;padding-top:40px;padding-bottom:80px;height:auto;border:0px solid #000000;}';
 		$aff .= '#wrapper #fondmenu{display:inline-table;background-color:rgba(255,255,2255,0.7);text-align:center;border-radius:5px;}';
 		$aff .= '#wrapper #menugauche{display:table-cell;float:left;padding-top:35px;padding-bottom:0px;padding-left:20px;border-width:0 0px 0 0 ;border-color:white;border-style:solid;text-align:left;font-size:17pt;font-family: \'Fjalla One\', verdana, helvetica;color:#fff;text-shadow: 2px 2px 2px black;}';
 		$aff .= '#wrapper #menucentre{display:table-cell;float:left;padding-top:210px;margin-top:0px;margin-bottom:20px;border-width:0 0 0 1px;border-color:white;border-style:solid;}';
@@ -222,7 +222,7 @@ class ResponsiveRedirectionView {
 			// $aff .= '<form action="http://192.168.10.71:9090/vote/2017/'.$login64.'/'.$loginMd5. '" method="get" name="frmelections" id="frmelections">';
 			// $aff .= '</form>';
 			
-			$aff .= '<div><label style="font-family:Fjalla One,helvetica;font-weight: lighter;font-size:15pt;">Vous allez &ecirc;tre redirig&eacute; vers le site<br>S.T.V.A</label></div>';
+			$aff .= '<div><label style="font-family:Fjalla One,helvetica;font-weight: lighter;font-size:15pt;">Vous allez &ecirc;tre redirig&eacute; vers le site<brE-CATTRANSPORT</label></div>';
 			
 			$aff .= '<div id=\'facebook\' name=\'facebook\'>
 			<div id=\'block_1\' name=\'block_1\' class=\'facebook_block1\'></div>

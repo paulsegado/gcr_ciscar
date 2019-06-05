@@ -19,7 +19,7 @@ class RenderAccessView {
 		$aff .= '<head>';
 		$aff .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">';
 		$aff .= '<meta name="viewport" content="width=device-width,initial-scale=1">';
-		$aff .= '<title>Acc&egrave;s STVA</title>';
+		$aff .= '<title>Acc&egrave;s e-cattransport</title>';
 		
 		$aff .= '<script type="text/javascript" src="js/jquery-3.0.0.js"></script>';
 

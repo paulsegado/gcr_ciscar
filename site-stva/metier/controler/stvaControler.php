@@ -31,7 +31,7 @@ class stvaControler {
 			$pos = strpos($id,'new-');
 			if ($pos === false)
 			{
-				// on active l'acces STVA sur les individus cochés
+				// on active l'acces STVA sur les individus cochï¿½s
 				if (isset ($_POST[$id]))
 				{
 					$login = 'login-'.$id;
@@ -51,7 +51,7 @@ class stvaControler {
 							}
 					}						
 					if (count($tabIndividuId) > 0)
-						$msg .= "<label>Acc&egrave;s STVA pour \""	.$_POST['nom-'.$id] . ' '. $_POST['prenom-'.$id]. '"  </label>&nbsp;<label style="color:#18a689;">ACTIF</label><br>';				
+						$msg .= "<label>Acc&egrave;s e-cattransport pour \""	.$_POST['nom-'.$id] . ' '. $_POST['prenom-'.$id]. '"  </label>&nbsp;<label style="color:#18a689;">ACTIF</label><br>';				
 				}
 			}
 			else 
@@ -62,7 +62,7 @@ class stvaControler {
 				{
 					$aSimple_LCAGroupeMembre = new Simple_LCAGroupeMembre ();
 					$tabIndividuId = $aSimple_LCAGroupeMembre->SQL_SELECT_IndividuID_By_Email ( $_POST[$mail] );
-					//Pour les individus trouvés, on active l'accès à STVA'
+					//Pour les individus trouvï¿½s, on active l'accï¿½s ï¿½ STVA'
 					foreach ( $tabIndividuId as $aIndividuID )
 					{
 							if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local' )
@@ -77,9 +77,9 @@ class stvaControler {
 							}
 					}						
 					if (count($tabIndividuId) == 2)
-						$msg .= "<label>Acc&egrave;s STVA pour \""	.$_POST['majNom-'.$id] . ' '. $_POST['majPrenom-'.$id]. '"  </label>&nbsp;<label style="color:#18a689;">ACTIF</label><br>';				
+						$msg .= "<label>Acc&egrave;s e-cattransport pour \""	.$_POST['majNom-'.$id] . ' '. $_POST['majPrenom-'.$id]. '"  </label>&nbsp;<label style="color:#18a689;">ACTIF</label><br>';				
 					else 				
-						$msg .= "<label>Acc&egrave;s STVA pour \""	.$_POST['majNom-'.$id] . ' '. $_POST['majPrenom-'.$id].'"  </label>&nbsp;<label style="color:#cd1719;;">EN COURS</label><br>';				
+						$msg .= "<label>Acc&egrave;s e-cattransportpour \""	.$_POST['majNom-'.$id] . ' '. $_POST['majPrenom-'.$id].'"  </label>&nbsp;<label style="color:#cd1719;;">EN COURS</label><br>';				
 				}
 			}
 			

@@ -23,7 +23,7 @@ class DemandeAccesView {
 		$aff .= '<head>';
 		//$aff .= '<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">';
 		$aff .= '<meta name="viewport" content="width=device-width,initial-scale=1">';
-		$aff .= '<title>Acc&egrave;s STVA</title>';
+		$aff .= '<title>Acc&egrave;s e-cattransport</title>';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">';
 		$aff .= '<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">';
@@ -217,7 +217,7 @@ class DemandeAccesView {
 		$aff .= '<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>';
 		$aff .= '<div id="fondmenu" class="col-lg-10 col-md-10 col-sm-10 col-xs-10">';
 		$aff .= '<div id="menugauche">';
-		$aff .= '<h1 style="color:#cd1719;">DEMANDE D\'ACCES STVA :&nbsp;';
+		$aff .= '<h1 style="color:#cd1719;">DEMANDE D\'ACCES e-cattransport :&nbsp;';
 		if($aSignataire->getNom () != '')
 		{
 			$aff .= '<label style="font-size:26pt;font-weight:normal;font-family: \'Fjalla One\', verdana, helvetica;color:#908d8d;">'.$aSignataire->getCivilite () . ' ' .  utf8_encode($aSignataire->getPrenom ()) . ' ' . $aSignataire->getNom ();
@@ -232,12 +232,12 @@ class DemandeAccesView {
 			if ($aSignataire->getAcces_Stva ())
 			{
 				$checkValue = "checked disabled";
-				$libelle = utf8_encode("Vous êtes déjà autorisé à vous connecter sur le site STVA.");
+				$libelle = utf8_encode("Vous &ecirc;tes d&eacute;j&agrave; autoris&eacute; &agrave; vous connecter sur le site e-cattransport.");
 			}
 			else 
 			{
 				$checkValue = "";
-				$libelle = utf8_encode("Indiquez si vous souhaitez être autorisé à vous connecter sur le site STVA.");
+				$libelle = utf8_encode("Indiquez si vous souhaitez &ecirc;tre autoris&eacute; &agrave; vous connecter sur le site e-cattransport.");
 			}
 			$listIndivID = '';
 			$listEtabID = '';
@@ -260,7 +260,7 @@ class DemandeAccesView {
 		if($aSignataire->getIndividuID () != Null)
 		{
 			if(count($listeIndiv) > 0)
-				$aff .= '<div class="row" style="margin-top:10px;"><label style="font-family:helvetica,arial;font-size:10pt;color:#cd1719;text-shadow:none;">Parmi les personnes rattach&eacute;es &agrave; vos &eacute;tablissements, cochez celles auxquelles vous souhaitez donner acc&egrave;s &agrave; STVA.</label></div>';
+				$aff .= '<div class="row" style="margin-top:10px;"><label style="font-family:helvetica,arial;font-size:10pt;color:#cd1719;text-shadow:none;">Parmi les personnes rattach&eacute;es &agrave; vos &eacute;tablissements, cochez celles auxquelles vous souhaitez donner acc&egrave;s &agrave; e-cattransport.</label></div>';
 			foreach ($listeIndiv as $aindividu)
 			{
 				
@@ -302,7 +302,7 @@ class DemandeAccesView {
 		// $aff .='</div>';
 		$aff .= '<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="menudroite">';
 		
-		// si connexion STVA autorisée
+		// si connexion STVA autorisï¿œe
 		//if ($aSignataire->getAcces_Stva () )
 		if($aSignataire->getIndividuID () != Null)
 		{
@@ -414,7 +414,7 @@ class DemandeAccesView {
 		$aff .= '<div class="row">';
 		
 		$aff .= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:#004682;font-size:7pt;">
-				<img style="width:20%;height:auto;" src="include/images/logo-stva.png"/>
+				<img style="width:20%;height:auto;" src="include/images/logo-ecat.png"/>
 				</div>';
 		$aff .= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:#004682;font-size:7pt;margin-bottom:5px;">
 				<img alt="" src="include/images/if_008_Mail_183573.png" style="margin-left:0px;">&nbsp;';
@@ -463,7 +463,7 @@ class DemandeAccesView {
 		document.getElementById("menu").style.display="block";
 		</script>';
 		
-		// Ajouter une ligne à la liste des individus
+		// Ajouter une ligne ï¿œ la liste des individus
 		$aff .= '<script type="text/javascript">
 		var newID = 0;
 		var newCliID = 0;
