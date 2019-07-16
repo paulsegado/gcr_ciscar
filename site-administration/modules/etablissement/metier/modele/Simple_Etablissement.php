@@ -16,6 +16,7 @@ class Simple_Etablissement {
 	private $LoginSage;
 	private $NumRRF;
 	private $RegionID;
+	private $GroupeEtablissement;
 	public function __construct() {
 		$this->ID = NULL;
 		$this->AnnuaireID = NULL;
@@ -27,6 +28,7 @@ class Simple_Etablissement {
 		$this->LoginSage = '';
 		$this->NumRRF = '';
 		$this->RegionID = NULL;
+		$this->GroupeEtablissement = '';
 	}
 
 	// ###
@@ -54,6 +56,9 @@ class Simple_Etablissement {
 	public function getNumRRF() {
 		return $this->NumRRF;
 	}
+	public function getGroupeEtablissement() {
+		return $this->GroupeEtablissement;
+	}
 	public function getRegionID() {
 		return $this->RegionID;
 	}
@@ -80,6 +85,9 @@ class Simple_Etablissement {
 	}
 	public function setNumRRF($newValue) {
 		$this->NumRRF = $newValue;
+	}
+	public function setGroupeEtablissement($newValue) {
+		$this->GroupeEtablissement = $newValue;
 	}
 	public function setRegionID($newValue) {
 		$this->RegionID = $newValue;

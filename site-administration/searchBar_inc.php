@@ -41,15 +41,15 @@ if ($_SESSION ['ADMIN'] ['USER'] ['CONNECTED']) {
 	?>
 		</td>
 			<td width="50%" align="right">Rechercher : <input type="text"
-				id="wordSearch1" name="wordSearch1" value="Individu"
+				id="wordSearch1" name="wordSearch1" 
 				placeholder="Individu" onclick="search.onclick('wordSearch1');"
 				onblur="search.onblur('wordSearch1');"
-				onkeyup="search.keypress(event);"> <input type="text"
-				id="wordSearch2" name="wordSearch2" value="Etablissement"
+				onkeyup="search.keypress(event);"> <input type="text" 
+				id="wordSearch2" name="wordSearch2" 
 				placeholder="Etablissement" onclick="search.onclick('wordSearch2');"
 				onblur="search.onblur('wordSearch2');"
 				onkeyup="search.keypress(event);"> <input type="text"
-				id="wordSearch3" name="wordSearch3" value="Publication"
+				id="wordSearch3" name="wordSearch3" 
 				placeholder="Publication" onclick="search.onclick('wordSearch3');"
 				onblur="search.onblur('wordSearch3');"
 				onkeyup="search.keypress(event);"> <input type="button" value="ok"
@@ -76,11 +76,7 @@ if ($_SESSION ['ADMIN'] ['USER'] ['CONNECTED']) {
 					document.location.href="/admin/modules/etablissement?Recherche="+wordSearch2.value;
 				} else if(wordSearch3.value != "") {
 					document.location.href="/admin/modules/document/DocInfoDyn?Recherche="+wordSearch3.value;
-				} else {
-					wordSearch1.value ="Individu";
-					wordSearch2.value ="Etablissement";
-					wordSearch3.value ="Publication";
-				}
+				} 
 			},
 			btSubmit : function () {
 				search._submit();

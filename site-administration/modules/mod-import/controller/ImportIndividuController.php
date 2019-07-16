@@ -187,7 +187,7 @@ class ImportIndividuController {
 											if ($_POST ['pLCASTVA'] == '1') {
 												if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local') {
 													// Base local
-													$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 433, $aIndividuID );
+													$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
 												} else {
 													// Base de production
 													$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );

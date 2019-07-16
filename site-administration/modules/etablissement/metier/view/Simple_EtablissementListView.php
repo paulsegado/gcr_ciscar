@@ -49,7 +49,7 @@ class Simple_EtablissementListView {
 
 		$aff .= '<input type="button" value="Nouveau" onclick="location.href=\'?action=c\'"/><br/><br/>';
 		$aff .= '<form action="?" method="POST"><table style="width:100%"><tr><td><div id="Pagination" class="pagination"></div>	</td><td align="right">
-					<b>Filtre</b><input type="text" name="Recherche" value="' . $recherche_precedente . '"style="padding-top:0px;height:25px;"/><input value="" type="submit" style="background:url(\'../../include/images/Icone_loupe.jpg\');cursor:hand;width=25px;"  /><input type="button" onclick="javascript:location.href=\'?\'" style="background:url(\'../../include/images/Icone_loupe_sup.jpg\');cursor:hand;width=25px;"  /></td>
+					<b>Filtre&nbsp;</b><input type="text" name="Recherche" value="' . $recherche_precedente . '"style="padding-top:0px;height:25px;"/><input value="" type="submit" style="background:url(\'../../include/images/Icone_loupe.jpg\');cursor:hand;width=25px;"  /><input type="button" onclick="javascript:location.href=\'?\'" style="background:url(\'../../include/images/Icone_loupe_sup.jpg\');cursor:hand;width=25px;"  /></td>
 					</tr>
 					</table></form>
 					<script>
@@ -79,7 +79,8 @@ class Simple_EtablissementListView {
 		$aff .= '<td align="center"><a href="?tri=4&ordre=' . $sens . $rech . '" ><b>Concession de</b></a></td>';
 		$aff .= '<td align="center"><a href="?tri=5&ordre=' . $sens . $rech . '" ><b>Code Sage</b></a></td>';
 		$aff .= '<td align="center"><a href="?tri=6&ordre=' . $sens . $rech . '" ><b>R&eacute;f&eacute;rence Constructeur</b></a></td>';
-		$aff .= '<td align="center"><b>Direction R&eacute;gionale</b></td>';
+		$aff .= '<td align="center"><a href="?tri=7&ordre=' . $sens . $rech . '" ><b>Direction R&eacute;gionale</b></td>';
+		$aff .= '<td align="center"><a href="?tri=8&ordre=' . $sens . $rech . '" ><b>Groupe</b></td>';
 		$aff .= '<td align="center" width="150" colspan="3"><b>Action</b></a></td>';
 		$aff .= '</tr>';
 		echo $aff;
@@ -96,6 +97,7 @@ class Simple_EtablissementListView {
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '">' . stripslashes ( $aEtablissement->getLoginSage () ) . '</td>';
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '">' . $this->NumRRFFormatter ( stripslashes ( $aEtablissement->getNumRRF () ) ) . '</td>';
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '">' . stripslashes ( $aRegion->getName () ) . '</td>';
+			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '">' . stripslashes ( $aEtablissement->getGroupeEtablissement () ) . '</td>';
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '" width="50"><b><a href="?action=m&id=' . $aEtablissement->getID () . '"><img src="../../include/images/voir.jpg" width="16" border="0"/></a></b></td>';
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '" width="50"><b><a href="?action=u&id=' . $aEtablissement->getID () . '"><img src="../../include/images/document_edit.png" border="0"/></a></b></td>';
 			$aff .= '<td align="center" class="' . ($row == 1 ? 'row1' : 'row2') . '" width="50"><b><a href="#" onclick="confirmDelete(' . $aEtablissement->getID () . ')"><img src="../../include/images/garbage_empty.png" border="0"/></a></b></td>';

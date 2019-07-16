@@ -17,6 +17,9 @@ class IndividuAnnuaire {
 	private $individuPassword;
 	private $individuLangues;
 	private $individuEtablissement;
+	private $individuLoginRgpd;
+	private $individuPasswordPrestashop;
+
 	public function __construct() {
 		$this->myList = array ();
 		$this->individuID = 0;
@@ -29,6 +32,8 @@ class IndividuAnnuaire {
 		$this->individuPassword = '';
 		$this->individuLangues = 0;
 		$this->individuEtablissement = '';
+		$this->individuLoginRgpd = '';
+		$this->individuPasswordPrestashop = '';
 	}
 
 	// ###
@@ -56,6 +61,12 @@ class IndividuAnnuaire {
 	public function getIndividuMail() {
 		return $this->individuMail;
 	}
+	public function getindividuLoginRgpd() {
+		return $this->individuLoginRgpd;
+	}
+	public function getindividuPasswordPrestashop() {
+		return $this->individuPasswordPrestashop;
+	}
 	public function getIndividuPassword() {
 		return $this->individuPassword;
 	}
@@ -71,7 +82,7 @@ class IndividuAnnuaire {
 
 		$this->myList = array ();
 
-		$sql = "SELECT IndividuID, Nom, Prenom, Login, annuaire_etablissement.LoginSage, Civilite, annuaire_individu.Mail, Password, RaisonSociale 
+		$sql = "SELECT IndividuID, Nom, Prenom, Login, annuaire_etablissement.LoginSage, Civilite, annuaire_individu.Mail, Password, RaisonSociale , LoginRgpd, PasswordPrestashop
 				FROM annuaire_individu, annuaire_etablissement WHERE LieuTravailID = EtablissementID and annuaire_individu.AnnuaireID= 1 and IndividuID = '%s'";
 		$query = sprintf ( $sql, mysqli_real_escape_string ( $_SESSION['LINK'] , $individuID ) );
 
@@ -89,6 +100,8 @@ class IndividuAnnuaire {
 			$this->individuMail = $line [6];
 			$this->individuPassword = $line [7];
 			$this->individuEtablissement = $line [8];
+			$this->individuLoginRgpd = $line [9];
+			$this->individuPasswordPrestashop = $line [10];
 		}
 
 		mysqli_free_result ( $result );

@@ -44,7 +44,7 @@ class LangueListe {
 
 	// ##################
 	function select_all_Langue() {
-		$result = mysqli_query ($_SESSION['LINK'], "SELECT LangueID, Code, Libelle FROM annuaire_lva_langue ORDER BY Code" ) or die ( mysqli_error ($_SESSION['LINK']) );
+		$result = mysqli_query ($_SESSION['LINK'], "SELECT LangueID, Code, Libelle FROM annuaire_lva_langue ORDER BY LangueID" ) or die ( mysqli_error ($_SESSION['LINK']) );
 
 		while ( $line = mysqli_fetch_array  ( $result ) ) {
 			$aLangue = new Langue ();

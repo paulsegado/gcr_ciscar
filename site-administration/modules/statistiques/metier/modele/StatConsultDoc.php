@@ -200,7 +200,7 @@ class StatConsultDoc {
 		}
 		switch ($type) {
 			case 0 :
-				$sql = "SELECT COUNT( * ), IDDoc,TypeDoc,Date,Titre,Libelle_CatType,Libelle_CatTheme,Libelle_CatMetier
+				$sql = "SELECT COUNT( * ), IDDoc,TypeDoc,Date,Max(Titre) as Titre,Max(Libelle_CatType) as Libelle_CatType,Max(Libelle_CatTheme) as Libelle_CatTheme,Max(Libelle_CatMetier) as Libelle_CatMetier
 							FROM stat_line_doc s
 							WHERE  s.SiteID = %s
 							AND MONTH(s.Date) = %s
@@ -208,6 +208,7 @@ class StatConsultDoc {
 							AND s.TypeDoc='0'
 							GROUP BY s.IDDoc  ORDER BY COUNT(*) DESC LIMIT %s, %s";
 				$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $site ), mysqli_real_escape_string ($_SESSION['LINK'], $mois ), mysqli_real_escape_string ($_SESSION['LINK'], $anne ), ($page - 1) * $top, mysqli_real_escape_string ($_SESSION['LINK'], $top ) );
+
 				$result = mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 
 				while ( $line = mysqli_fetch_array  ( $result ) ) {
@@ -272,7 +273,7 @@ class StatConsultDoc {
 				break;
 
 			case 3 :
-				$sql = "SELECT COUNT( * ), IDDoc,TypeDoc,Date,Libelle_CatType,Libelle_CatTheme,Libelle_CatMetier,Titre
+				$sql = "SELECT COUNT( * ), IDDoc,TypeDoc,Date,Max(Libelle_CatType) as Libelle_CatType,Max(Libelle_CatTheme) as Libelle_CatTheme,Max(Libelle_CatMetier) as Libelle_CatMetier,Max(Titre) as Titre
 							FROM stat_line_doc s WHERE s.SiteID = %s
 							AND MONTH(s.Date) = %s
 							AND YEAR(s.Date)= %s

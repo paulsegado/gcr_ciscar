@@ -138,7 +138,9 @@ class IndividuControler {
 					$aIndividu->setMail3 ( trim ( $_POST ['Mail3'] ) );
 					$aIndividu->setMail4 ( trim ( $_POST ['Mail4'] ) );
 					$aIndividu->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
 					$aIndividu->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu->setNewsletter( $_POST ['Newsletter'] );
 					
 					$aIndividu->setEnSommeil ( trim ( $_POST ['EnSommeil'] ) );
 
@@ -292,7 +294,9 @@ class IndividuControler {
 					$aIndividu2->setLoginSage ( $aIndividu->getLoginSage () );
 					$aIndividu2->setIdSage ( $aIndividu->getIdSage () );
 					$aIndividu2->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu2->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
 					$aIndividu2->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu2->setNewsletter( $_POST ['Newsletter'] );
 					// $aIndividu2->setPasswordSage($aIndividu->getPasswordSage());
 
 					// Utilisateur CISCAR
@@ -392,7 +396,7 @@ class IndividuControler {
 						if ($_POST ['ACCES_STVA'] == '1') {
 							if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local') {
 								// Base local
-								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 433, $aIndividuID );
+								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
 							} else {
 								// Base de production
 								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
@@ -408,7 +412,7 @@ class IndividuControler {
 						$aParam = new Param ();
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_ACCOUNT_FROM' );
 						$aMail->setFrom ( $aParam->getValue () );
-						$aMail->setTo ( $aIndividu->getMail () );
+						$aMail->setTo ( $aIndividu->getLoginRgpd() );
 						$aParam->search_param ( $_SESSION ['ADMIN'] ['USER'] ['SiteName'] . '_MAIL_ACCOUNT_SUBJECT' );
 						$aMail->setSubject ( stripslashes ( $aParam->getValue () ) );
 
@@ -422,7 +426,7 @@ class IndividuControler {
 						// Crypter le mot de passe
 						$pwd = base64_encode ( $aIndividu->getPassword () );
 
-						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
+						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . base64_encode(base64_encode ($aIndividu->getLogin ()) . '&' . $pwd), $msg );
 						$msg = str_replace ( '{Login_User}', '&nclogin=' . $aIndividu->getLogin () . '&ncpwd=' . $pwd, $msg );
 						$msg = str_replace ( 'loginIcom', 'loginIcom&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
 
@@ -439,7 +443,7 @@ class IndividuControler {
 						echo CommunFunction::goToURL ( '../etablissement/index.php?action=m&id=' . $aEtablissement->getID () );
 					} else {
 
-						// Notification Account Pour LCA BELGE SUR OUI
+						/* Notification Account Pour LCA BELGE SUR OUI
 						$aMail = new NotificationMail ();
 						$aParam = new Param ();
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_FROM' );
@@ -458,7 +462,7 @@ class IndividuControler {
 						// Crypter le mot de passe
 						$pwd = base64_encode ( $aIndividu->getPassword () );
 
-						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
+						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . base64_encode(base64_encode ($aIndividu->getLogin ()) . '&' . $pwd), $msg );
 						$msg = str_replace ( '{Login_User}', '&nclogin=' . $aIndividu->getLogin () . '&ncpwd=' . $pwd, $msg );
 						$msg = str_replace ( 'loginIcom', 'loginIcom&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
 
@@ -470,7 +474,7 @@ class IndividuControler {
 
 						if (! $aMail->send ()) {
 							echo CommunFunction::displayAlert ( 'Message en Erreur 2' );
-						}
+						}*/
 
 						echo CommunFunction::goToURL ( '../etablissement/index.php?action=m&id=' . $aEtablissement->getID () );
 					}
@@ -496,7 +500,9 @@ class IndividuControler {
 					$aIndividu->setMail3 ( trim ( $_POST ['Mail3'] ) );
 					$aIndividu->setMail4 ( trim ( $_POST ['Mail4'] ) );
 					$aIndividu->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
 					$aIndividu->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu->setNewsletter( $_POST ['Newsletter'] );
 					
 					$aIndividu->setEnSommeil ( trim ( $_POST ['EnSommeil'] ) );
 
@@ -625,7 +631,9 @@ class IndividuControler {
 					$aIndividu2->setLoginSage ( $aIndividu->getLoginSage () );
 					$aIndividu2->setIdSage ( $aIndividu->getIdSage () );
 					$aIndividu2->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu2->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
 					$aIndividu2->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu2->setNewsletter( $_POST ['Newsletter'] );
 					// $aIndividu2->setPasswordSage($aIndividu->getPasswordSage());
 
 					// CISCAR
@@ -677,7 +685,7 @@ class IndividuControler {
 						// Ajout acces STVA
 						if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local') {
 							// Base local
-							$aSimple_LCAGroupeMembre->SQL_GROUPE_REMOVE_MEMBER ( 433, $aIndividuID );
+							$aSimple_LCAGroupeMembre->SQL_GROUPE_REMOVE_MEMBER ( 497, $aIndividuID );
 						} else {
 							// Base de production
 							$aSimple_LCAGroupeMembre->SQL_GROUPE_REMOVE_MEMBER ( 497, $aIndividuID );
@@ -728,7 +736,7 @@ class IndividuControler {
 						if ($_POST ['ACCES_STVA'] == '1') {
 							if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local') {
 								// Base local
-								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 433, $aIndividuID );
+								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
 							} else {
 								// Base de production
 								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
@@ -850,7 +858,7 @@ class IndividuControler {
 						// Crypter le mot de passe
 						$pwd = base64_encode ( $aIndividu->getPassword () );
 
-						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
+						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . base64_encode(base64_encode ($aIndividu->getLogin ()) . '&' . $pwd), $msg );
 						$msg = str_replace ( '{Login_User}', '&nclogin=' . $aIndividu->getLogin () . '&ncpwd=' . $pwd, $msg );
 						$msg = str_replace ( 'loginIcom', 'loginIcom&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
 
@@ -866,7 +874,7 @@ class IndividuControler {
 						}
 						echo CommunFunction::goToURL ( '../individu/?action=edit&id=' . $_GET ['id'] );
 					} else {
-
+						/*
 						$aMail = new NotificationMail ();
 						$aParam = new Param ();
 						$aParam->search_param ( 'CISCARBELGE_MAIL_LOGIN_NOTIFICATION_FROM' );
@@ -885,7 +893,7 @@ class IndividuControler {
 						// Crypter le mot de passe
 						$pwd = base64_encode ( $aIndividu->getPassword () );
 
-						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
+						$msg = str_replace ( '{Login_validate}', '&action=validate&login=' . base64_encode(base64_encode ($aIndividu->getLogin ()) . '&' . $pwd), $msg );
 						$msg = str_replace ( '{Login_User}', '&nclogin=' . $aIndividu->getLogin () . '&ncpwd=' . $pwd, $msg );
 						$msg = str_replace ( 'loginIcom', 'loginIcom&login=' . $aIndividu->getLogin () . '&pwd=' . $pwd, $msg );
 
@@ -899,6 +907,7 @@ class IndividuControler {
 						if (! $aMail->send ()) {
 							echo CommunFunction::displayAlert ( 'Message en Erreur 4' );
 						}
+						*/
 						echo CommunFunction::goToURL ( '../individu/?action=edit&id=' . $_GET ['id'] );
 					}
 				}

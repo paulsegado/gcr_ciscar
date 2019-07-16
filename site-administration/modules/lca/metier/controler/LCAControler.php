@@ -110,6 +110,9 @@ class LCAControler {
 					$aIndividu->setMail3 ( trim ( $_POST ['Mail3'] ) );
 					$aIndividu->setMail4 ( trim ( $_POST ['Mail4'] ) );
 					$aIndividu->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
+					$aIndividu->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu->setNewsletter( $_POST ['Newsletter'] );
 					
 					$aIndividu->setEnSommeil ( trim ( $_POST ['EnSommeil'] ) );
 
@@ -214,6 +217,9 @@ class LCAControler {
 					$aIndividu2->setCivilite ( trim ( $_POST ['Civilite'] ) );
 					$aIndividu2->setLoginSage ( $aIndividu->getLoginSage () );
 					$aIndividu2->setLoginRgpd( trim ( $_POST ['LoginRgpd'] ) );
+					$aIndividu2->setCryptPasswordRgpd( trim ( $_POST ['CryptPasswordRgpd'] ) );
+					$aIndividu2->setStatutdRgpd( trim ( $_POST ['StatutRgpd'] ) );
+					$aIndividu2->setNewsletter( $_POST ['Newsletter'] );
 					
 					// Utilisateur CISCAR
 					if ($_POST ['ACCES_CISCAR'] == '1' && $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] != '1') {
@@ -276,7 +282,7 @@ class LCAControler {
 						if ($_POST ['ACCES_STVA'] == '1') {
 							if ($_SERVER ['HTTP_HOST'] == 'gcrfrance.local' || $_SERVER ['HTTP_HOST'] == 'ciscar.local') {
 								// Base local
-								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 433, $aIndividuID );
+								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );
 							} else {
 								// Base de production
 								$aSimple_LCAGroupeMembre->SQL_GROUPE_ADD_MEMBER ( 497, $aIndividuID );

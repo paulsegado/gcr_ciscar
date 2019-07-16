@@ -67,6 +67,9 @@ class Simple_EtablissementList {
 		}
 		switch ($tri) {
 
+			case '0' :
+				$tri = 'EtablissementID';
+				break;
 			case '1' :
 				$tri = 'RaisonSociale';
 				break;
@@ -85,11 +88,17 @@ class Simple_EtablissementList {
 			case '6' :
 				$tri = 'NumRRF';
 				break;
+			case '7' :
+				$tri = 'RegionID';
+				break;
+			case '8' :
+				$tri = 'lge.libelle';
+				break;
 			default :
-				$tri = 'RaisonSociale';
+				$tri = 'EtablissementID';
 				break;
 		}
-		$sql = "SELECT EtablissementID, AnnuaireID, RaisonSociale, Ville, CodePostal, BureauDistributeur, LoginSage, NumRRF, RegionID FROM annuaire_etablissement WHERE AnnuaireID='%s' ORDER BY %s %s LIMIT %d, %d ";
+		$sql = "SELECT EtablissementID, e.AnnuaireID, RaisonSociale, Ville, CodePostal, BureauDistributeur, LoginSage, NumRRF, RegionID, lge.Libelle FROM annuaire_etablissement e left join annuaire_lva_groupe_etablissement lge on lge.GroupeID = e.GroupeID WHERE e.AnnuaireID='%s' ORDER BY %s %s LIMIT %d, %d ";
 
 		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], $tri ), mysqli_real_escape_string ($_SESSION['LINK'], $ordre ), ($NumPage - 1) * $NumEntry, $NumEntry );
 
@@ -105,7 +114,8 @@ class Simple_EtablissementList {
 			$aModele->setLoginSage ( $line [6] );
 			$aModele->setNumRRF ( $line [7] );
 			$aModele->setRegionID ( $line [8] );
-
+			$aModele->setGroupeEtablissement( $line [9] );
+			
 			$this->myList [] = $aModele;
 		}
 
@@ -126,26 +136,35 @@ class Simple_EtablissementList {
 		switch ($tri) {
 
 			case '1' :
-				$tri = 'EtablissementID';
-				break;
-			case '2' :
-				$tri = 'Ville';
-				break;
-			case '3' :
 				$tri = 'RaisonSociale';
 				break;
-			case '4' :
+			case '2' :
 				$tri = 'CodePostal';
 				break;
-			case '5' :
+			case '3' :
 				$tri = 'BureauDistributeur';
+				break;
+			case '4' :
+				$tri = 'Ville';
+				break;
+			case '5' :
+				$tri = 'LoginSage';
+				break;
+			case '6' :
+				$tri = 'NumRRF';
+				break;
+			case '7' :
+				$tri = 'RegionID';
+				break;
+			case '8' :
+				$tri = 'lge.libelle';
 				break;
 			default :
 				$tri = 'EtablissementID';
 				break;
 		}
-		$sql = "SELECT EtablissementID, AnnuaireID, RaisonSociale, Ville, CodePostal, BureauDistributeur, LoginSage, NumRRF, RegionID FROM annuaire_etablissement WHERE AnnuaireID='%s' AND ( UPPER(EtablissementID) LIKE UPPER('%s') OR UPPER(Ville) LIKE UPPER('%s')  OR UPPER(RaisonSociale) LIKE UPPER('%s') OR UPPER(CodePostal) LIKE UPPER('%s') OR UPPER(BureauDistributeur) LIKE UPPER('%s') OR UPPER(LoginSage) LIKE UPPER('%s') OR UPPER(Pays) LIKE UPPER('%s')) ORDER BY %s %s LIMIT %d, %d ";
-		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], $tri ), mysqli_real_escape_string ($_SESSION['LINK'], $ordre ), ($NumPage - 1) * $NumEntry, $NumEntry );
+		$sql = "SELECT EtablissementID, e.AnnuaireID, RaisonSociale, Ville, CodePostal, BureauDistributeur, LoginSage, NumRRF, RegionID, lge.Libelle FROM annuaire_etablissement e left join annuaire_lva_groupe_etablissement lge on lge.GroupeID = e.GroupeID WHERE e.AnnuaireID='%s' AND ( UPPER(EtablissementID) LIKE UPPER('%s') OR UPPER(Ville) LIKE UPPER('%s')  OR UPPER(RaisonSociale) LIKE UPPER('%s') OR UPPER(CodePostal) LIKE UPPER('%s') OR UPPER(BureauDistributeur) LIKE UPPER('%s') OR UPPER(LoginSage) LIKE UPPER('%s') OR UPPER(Pays) LIKE UPPER('%s') OR UPPER(lge.Libelle) LIKE UPPER('%s')) ORDER BY %s %s LIMIT %d, %d ";
+		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], $tri ), mysqli_real_escape_string ($_SESSION['LINK'], $ordre ), ($NumPage - 1) * $NumEntry, $NumEntry );
 
 		$result = mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 
@@ -159,16 +178,19 @@ class Simple_EtablissementList {
 			$aModele->setLoginSage ( $line [6] );
 			$aModele->setNumRRF ( $line [7] );
 			$aModele->setRegionID ( $line [8] );
-
+			$aModele->setGroupeEtablissement( $line [9] );
+			
 			$this->myList [] = $aModele;
 		}
 
 		mysqli_free_result  ( $result );
 	}
 	public function SQL_SEARCH_COUNT($Recherche) {
-		$sql = "SELECT count(*) FROM annuaire_etablissement WHERE AnnuaireID='%s' AND (EtablissementID LIKE '%s' OR  Ville LIKE '%s' OR  Pays LIKE '%s'  OR RaisonSociale LIKE '%s' OR CodePostal LIKE '%s'	OR BureauDistributeur LIKE '%s')";
-
-		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ) );
+		//$sql = "SELECT count(*) FROM annuaire_etablissement WHERE AnnuaireID='%s' AND (EtablissementID LIKE '%s' OR  Ville LIKE '%s' OR  Pays LIKE '%s'  OR RaisonSociale LIKE '%s' OR CodePostal LIKE '%s'	OR BureauDistributeur LIKE '%s')";
+		$sql = "SELECT count(*) FROM annuaire_etablissement e left join annuaire_lva_groupe_etablissement lge on lge.GroupeID = e.GroupeID WHERE e.AnnuaireID='%s' AND ( UPPER(EtablissementID) LIKE UPPER('%s') OR UPPER(Ville) LIKE UPPER('%s')  OR UPPER(RaisonSociale) LIKE UPPER('%s') OR UPPER(CodePostal) LIKE UPPER('%s') OR UPPER(BureauDistributeur) LIKE UPPER('%s') OR UPPER(LoginSage) LIKE UPPER('%s') OR UPPER(Pays) LIKE UPPER('%s') OR UPPER(lge.Libelle) LIKE UPPER('%s')) ";
+		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . trim ( $Recherche ) . '%' ));
+		
+		//$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $_SESSION ['ADMIN'] ['USER'] ['AnnuaireID'] ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ), mysqli_real_escape_string ($_SESSION['LINK'], '%' . $Recherche . '%' ) );
 		$result = mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 		$line = mysqli_fetch_array  ( $result );
 		return $line [0];

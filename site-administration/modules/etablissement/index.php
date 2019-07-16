@@ -111,20 +111,20 @@ if ($_SESSION ['ADMIN'] ['USER'] ['CONNECTED']) {
 		if (isset ( $_POST ['Recherche'] ) && $_POST ['Recherche'] != NULL) {
 			$NbEntre = 0;
 			$aModeleList = new Simple_EtablissementList ();
-			$aModeleList->SQL_SEARCH ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, $_POST ['Recherche'], isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '3', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'a' );
+			$aModeleList->SQL_SEARCH ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, $_POST ['Recherche'], isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '0', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'd' );
 			// Element Max
 			$NbEntre = $aModeleList->SQL_SEARCH_COUNT ( $_POST ['Recherche'] );
 		} elseif (isset ( $_GET ['Recherche'] ) && $_GET ['Recherche'] != NULL) {
 			$NbEntre = 0;
 			$aModeleList = new Simple_EtablissementList ();
-			$aModeleList->SQL_SEARCH ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, $_GET ['Recherche'], isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '3', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'a' );
+			$aModeleList->SQL_SEARCH ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, $_GET ['Recherche'], isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '0', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'd' );
 			// Element Max
 			$NbEntre = $aModeleList->SQL_SEARCH_COUNT ( $_GET ['Recherche'] );
 		} // Sans Recherche
 		else {
 			$NbEntre = 0;
 			$aModeleList = new Simple_EtablissementList ();
-			$aModeleList->SQL_SELECT_PAGE ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '3', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'a' );
+			$aModeleList->SQL_SELECT_PAGE ( isset ( $_GET ['page'] ) ? $_GET ['page'] + 1 : 1, 50, isset ( $_GET ['tri'] ) ? $_GET ['tri'] : '0', isset ( $_GET ['ordre'] ) ? $_GET ['ordre'] : 'd' );
 			// Element Max
 			$NbEntre = $aModeleList->SQL_COUNT ();
 		}

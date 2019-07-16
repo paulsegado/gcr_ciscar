@@ -28,6 +28,7 @@ class Individu {
 	private $password;
 	private $loginRgpg;
 	private $passwordRgpd;
+	private $CryptPasswordRgpd;
 	private $statutRgpd;
 	private $civilite;
 	private $idSage;
@@ -36,7 +37,8 @@ class Individu {
 	private $obj_lieuTravail;
 	private $obj_annuaire;
 	private $obj_langueListe;
-
+	private $Newsletter;
+	
 	function __construct()
 	{
 		$this->id = NULL;
@@ -61,6 +63,7 @@ class Individu {
 		$this->password = '';
 		$this->loginRgpd = '';
 		$this->passwordRgpd = '';
+		$this->CryptpasswordRgpd = '';
 		$this->statutRgpd = 0;
 		$this->civilite = 1;
 		$this->idSage = '';
@@ -70,6 +73,7 @@ class Individu {
 		$this->obj_lieuTravail = NULL;
 		$this->obj_annuaire = NULL;
 		$this->obj_langueListe = NULL;
+		$this->Newsletter = 1;
 	}
 	function Individu() {
 		self::__construct();
@@ -148,6 +152,9 @@ class Individu {
 		else 
 			return $this->passwordRgpd;
 	}
+	function getCryptPasswordRgpd() {
+		return $this->passwordRgpd;
+	}
 	function getStatutRgpd() {
 		return $this->statutRgpd;
 	}
@@ -205,7 +212,10 @@ class Individu {
 	function getLieuTravailID() {
 		return $this->lieuTravailID;
 	}
-
+	function getNewsletter() {
+		return $this->Newsletter;
+	}
+	
 	// ###################
 	function setID($newValue) {
 		$this->id = $newValue;
@@ -270,6 +280,9 @@ class Individu {
 	function setPassword($newValue) {
 		$this->password = $newValue;
 	}
+	function setCryptPasswordRgpd($newValue) {
+		$this->CryptPasswordRgpd = $newValue;
+	}
 	function setLoginRgpd($newValue) {
 		$this->loginRgpd = $newValue;
 	}
@@ -297,7 +310,10 @@ class Individu {
 	function setLieuTravailID($newValue) {
 		$this->lieuTravailID = $newValue;
 	}
-
+	function setNewsletter($newValue) {
+		$this->Newsletter = $newValue;
+	}
+	
 	// ####################
 	function user_exist() {
 		$query = sprintf ( "SELECT IndividuID FROM annuaire_individu WHERE Login='%s' AND AnnuaireID='%s'", mysqli_real_escape_string ($_SESSION['LINK'], $this->login ), mysqli_real_escape_string ($_SESSION['LINK'], $this->obj_annuaire->getID () ) );
@@ -339,12 +355,18 @@ class Individu {
 		mysqli_free_result  ( $result );
 	}
 	function create_individu() {
+		
+		if($this->getAnnuaire () == 1)
+			$passwordPrestashop = base64_encode($this->password);
+		else 
+			$passwordPrestashop = '';
+		
 		$sql = "INSERT INTO annuaire_individu VALUES(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'";
 		$sql .= (! is_null ( $this->getLieuTravail () ) && ! is_null ( $this->getLieuTravail ()->getID () )) ? ",'" . $this->getLieuTravail ()->getID () . "'" : ",NULL";
 		$sql .= ! is_null ( $this->getAnnuaire ()->getID () ) ? ",'" . $this->getAnnuaire ()->getID () . "'" : ",NULL";
-		$sql .= ",'%s','%s',CURRENT_TIMESTAMP,'%s','%s','')";
+		$sql .= ",'%s','%s',CURRENT_TIMESTAMP,'%s','%s','%s',%s,'%s')";
 
-		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $this->nom ), mysqli_real_escape_string ($_SESSION['LINK'], $this->prenom ), mysqli_real_escape_string ($_SESSION['LINK'], $this->telephone ), mysqli_real_escape_string ($_SESSION['LINK'], $this->telephonePortable ), mysqli_real_escape_string ($_SESSION['LINK'], $this->fax ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail2 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail3 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail4 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->passwordSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->enSommeil ), mysqli_real_escape_string ($_SESSION['LINK'], $this->importActif ), mysqli_real_escape_string ($_SESSION['LINK'], $this->login ), mysqli_real_escape_string ($_SESSION['LINK'], $this->password ), mysqli_real_escape_string ($_SESSION['LINK'], $this->civilite ), mysqli_real_escape_string ($_SESSION['LINK'], $this->idSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->statutRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginRgpd ) );
+		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], $this->nom ), mysqli_real_escape_string ($_SESSION['LINK'], $this->prenom ), mysqli_real_escape_string ($_SESSION['LINK'], $this->telephone ), mysqli_real_escape_string ($_SESSION['LINK'], $this->telephonePortable ), mysqli_real_escape_string ($_SESSION['LINK'], $this->fax ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail2 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail3 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->mail4 ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->passwordSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->enSommeil ), mysqli_real_escape_string ($_SESSION['LINK'], $this->importActif ), mysqli_real_escape_string ($_SESSION['LINK'], $this->login ), mysqli_real_escape_string ($_SESSION['LINK'], $this->password ), mysqli_real_escape_string ($_SESSION['LINK'], $this->civilite ), mysqli_real_escape_string ($_SESSION['LINK'], $this->idSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->statutRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginRgpd ),mysqli_real_escape_string ($_SESSION['LINK'], $this->CryptPasswordRgpd ) ,mysqli_real_escape_string ($_SESSION['LINK'], $this->Newsletter ), mysqli_real_escape_string ($passwordPrestashop) );
 
 		mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 		$this->id = mysqli_insert_id ($_SESSION['LINK']);
@@ -362,10 +384,10 @@ class Individu {
 	function update_individu_by_site($aSiteID) {
 		$sql = "UPDATE annuaire_individu SET Nom='%s', Prenom='%s', Telephone='%s', TelephonePortable='%s',
 									Fax='%s', Mail='%s', Mail2='%s', Mail3='%s', Mail4='%s',LoginSage='%s', PasswordSage='%s',ImportActif='%s',
-									EnSommeil='%s',	Password='%s', Civilite='%s', IdSage='%s', LoginRgpd='%s', PasswordRgpdStatut='%s'";
+									EnSommeil='%s',	Password='%s', Civilite='%s', IdSage='%s', LoginRgpd='%s', PasswordRgpdStatut='%s', Newsletter=%s";
 		$sql .= " WHERE Login='%s' AND AnnuaireID='%s'";
 
-		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->nom ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->prenom ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->telephone ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->telephonePortable ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->fax ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail2 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail3 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail4 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->loginSage ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->passwordSage ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->importActif ) ), mysqli_real_escape_string ($_SESSION['LINK'], $this->enSommeil ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->password ) ), mysqli_real_escape_string ($_SESSION['LINK'], $this->civilite ), mysqli_real_escape_string ($_SESSION['LINK'], $this->idSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], $this->statutRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->login ) ), mysqli_real_escape_string ($_SESSION['LINK'], $aSiteID ) );
+		$query = sprintf ( $sql, mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->nom ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->prenom ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->telephone ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->telephonePortable ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->fax ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail2 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail3 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->mail4 ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->loginSage ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->passwordSage ) ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->importActif ) ), mysqli_real_escape_string ($_SESSION['LINK'], $this->enSommeil ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->password ) ), mysqli_real_escape_string ($_SESSION['LINK'], $this->civilite ), mysqli_real_escape_string ($_SESSION['LINK'], $this->idSage ), mysqli_real_escape_string ($_SESSION['LINK'], $this->loginRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], $this->statutRgpd ), mysqli_real_escape_string ($_SESSION['LINK'], $this->Newsletter ), mysqli_real_escape_string ($_SESSION['LINK'], stripslashes ( $this->login ) ), mysqli_real_escape_string ($_SESSION['LINK'], $aSiteID ) );
 
 		mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 
@@ -384,7 +406,7 @@ class Individu {
 	}
 	function select_individu($i) {
 		// , ClientInfo, ClientMercham, ClientGarage
-		$query = sprintf ( "SELECT IndividuID, Nom, Prenom, Telephone, TelephonePortable, Fax, Mail, Mail2, Mail3, Mail4, LoginSage, PasswordSage, EnSommeil, ImportActif, Login, Password, Civilite, LieuTravailID, AnnuaireID, IdSage, Date_Creat, LoginRgpd, PasswordRgpd, PasswordRgpdStatut
+		$query = sprintf ( "SELECT IndividuID, Nom, Prenom, Telephone, TelephonePortable, Fax, Mail, Mail2, Mail3, Mail4, LoginSage, PasswordSage, EnSommeil, ImportActif, Login, Password, Civilite, LieuTravailID, AnnuaireID, IdSage, Date_Creat, LoginRgpd, PasswordRgpd, PasswordRgpdStatut, Newsletter
 				FROM annuaire_individu WHERE IndividuID='%s'", mysqli_real_escape_string ($_SESSION['LINK'], $i ) );
 
 		$result = mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
@@ -415,7 +437,8 @@ class Individu {
 			$this->setLoginRgpd($line[21]);
 			$this->setPasswordRgpd($line[22]);
 			$this->setStatutdRgpd($line[23]);
-
+			$this->setNewsletter($line[24]);
+			
 			$aEtablissement = new Etablissement ();
 			$aEtablissement->select_etablissement ( $line [17] );
 			$this->setLieuTravail ( $aEtablissement );
@@ -443,6 +466,7 @@ class Individu {
 			$this->loginRgpd = '';
 			$this->passwordRgpd = '';
 			$this->statutRgpd = 0;
+			$this->Newsletter = 1;
 			$this->civilite = 1;
 			$this->idSage = '';
 			$this->lieuTravailID = 0;

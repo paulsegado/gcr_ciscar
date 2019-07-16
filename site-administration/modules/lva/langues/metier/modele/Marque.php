@@ -57,7 +57,7 @@ class Langue {
 		mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 	}
 	function select_Langue($LangueID) {
-		$query = sprintf ( "SELECT LangueID, Code, Libelle FROM annuaire_lva_langue WHERE LangueID='%s'", mysqli_real_escape_string ($_SESSION['LINK'], $LangueID ) );
+		$query = sprintf ( "SELECT LangueID, Code, Libelle FROM annuaire_lva_langue WHERE LangueID='%s' order by LangueID ", mysqli_real_escape_string ($_SESSION['LINK'], $LangueID ) );
 
 		$result = mysqli_query ($_SESSION['LINK'], $query ) or die ( mysqli_error ($_SESSION['LINK']) );
 

@@ -325,12 +325,12 @@ class PrestaShopCustomer {
 				,company = \'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuEtablissement () ) . '\'
 				,firstname =  \'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuPrenom () ) . '\'
 				,lastname = \'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuNom () ) . '\'
-				,email = \'' . $aindividuAnnuaire->getIndividuMail () . '\'
-				,passwd = \'' . md5 ( $cookie_key_prestashop . $aindividuAnnuaire->getIndividuPassword () ) . '\'
+				,email = \'' . $aindividuAnnuaire->getindividuLoginRgpd() . '\'
+				,passwd = \'' . md5 ( $cookie_key_prestashop . base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) ) . '\'
 				,date_add = CURDATE()
 				,date_upd = CURDATE()
 				,login_ciscar = \'' . $aindividuAnnuaire->getIndividuLoginSage () . '\'
-				,pwdclear = \'' . $aindividuAnnuaire->getIndividuPassword () . '\'
+				,pwdclear = \'' . base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) . '\'
 				where id_customer = %s';
 		$query = sprintf ( $sql, mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuID () ) );
 
@@ -383,8 +383,8 @@ class PrestaShopCustomer {
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuEtablissement () ) . '\'
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuPrenom () ) . '\'
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividunom () ) . '\'
-	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuMail () ) . '\'
-	,\'' . md5 ( $cookie_key_prestashop . $aindividuAnnuaire->getIndividuPassword () ) . '\'
+	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getindividuLoginRgpd () ) . '\'
+	,\'' . md5 ( $cookie_key_prestashop . base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) ) . '\'
 	,CURDATE()
 	,' . $aprestaShopCustomer->getNewsletter () . '
 	,CURDATE()
@@ -399,7 +399,7 @@ class PrestaShopCustomer {
 	,CURDATE()
 	,CURDATE()
 	,\'' . $aindividuAnnuaire->getIndividuLoginSage () . '\'
-	,\'' . $aindividuAnnuaire->getIndividuPassword () . '\'
+	,\'' . base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) . '\'
 	)';
 		mysqli_query ( $_SESSION['LINK_PRESTASHOP'] , $sql ) or die ( mysqli_error ($_SESSION['LINK_PRESTASHOP']) );
 	}
@@ -448,8 +448,8 @@ class PrestaShopCustomer {
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuEtablissement () ) . '\'
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuPrenom () ) . '\'
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuNom () ) . '\'
-	,\'' . $aindividuAnnuaire->getIndividuMail () . '\'
-	,\'' . md5 ( $cookie_key_prestashop . $aindividuAnnuaire->getIndividuPassword () ) . '\'
+	,\'' . $aindividuAnnuaire->getindividuLoginRgpd () . '\'
+	,\'' . md5 ( $cookie_key_prestashop . base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) ) . '\'
 	,CURDATE()
 	,1
 	,CURDATE()
@@ -464,7 +464,7 @@ class PrestaShopCustomer {
 	,CURDATE()
 	,CURDATE()
 	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuLoginSage () ) . '\'
-	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , $aindividuAnnuaire->getIndividuPassword () ) . '\'
+	,\'' . mysqli_real_escape_string ( $_SESSION['LINK_PRESTASHOP'] , base64_decode($aindividuAnnuaire->getindividuPasswordPrestashop ()) ) . '\'
 	)';
 		mysqli_query ( $_SESSION['LINK_PRESTASHOP'] , $sql ) or die ( mysqli_error ($_SESSION['LINK_PRESTASHOP']) );
 	}

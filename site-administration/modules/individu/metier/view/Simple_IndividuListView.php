@@ -49,7 +49,7 @@ class Simple_IndividuListView {
 		$aff .= '</div>';
 		echo $aff;
 
-		echo '<br/><br /><form action="?" method="POST"><table style="width:100%"><tr><td><div id="Pagination" class="pagination"></div></td><td align="right"><b>Filtre</b><input type="text" name="Recherche" value="' . $recherche_precedente . '" style="padding-top:0px;height:25px;"/><input value="" type="submit" style="background:url(\'../../include/images/Icone_loupe.jpg\');cursor:hand;height:23px;width:23px;"  />
+		echo '<br/><br /><form action="?" method="POST"><table style="width:100%"><tr><td><div id="Pagination" class="pagination"></div></td><td align="right"><b>Filtre&nbsp;</b><input type="text" name="Recherche" value="' . $recherche_precedente . '" style="padding-top:0px;height:25px;"/><input value="" type="submit" style="background:url(\'../../include/images/Icone_loupe.jpg\');cursor:hand;height:23px;width:23px;"  />
 				</td></tr></table></form>
 		<script>
 			var num_entries = ' . ($this->nbrEntre) . ';

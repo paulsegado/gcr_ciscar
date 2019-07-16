@@ -22,7 +22,7 @@ class PrestashopControler {
 			$aPrestaShopCustomer = new PrestaShopCustomer ();
 			$aPrestaShopCustomer->SQL_SELECT_CUSTOMER_BY_ID ( $aIndividuAnnuaire->getIndividuID () );
 			if ($aPrestaShopCustomer->getIdCustomer () == $individuID) {
-				$aPrestaShopCustomer->SQL_SELECT_CUSTOMER_BY_ID_EMAIL ( $aIndividuAnnuaire->getIndividuID (), $aIndividuAnnuaire->getIndividuMail () );
+				$aPrestaShopCustomer->SQL_SELECT_CUSTOMER_BY_ID_EMAIL ( $aIndividuAnnuaire->getIndividuID (), $aIndividuAnnuaire->getindividuLoginRgpd () );
 				if ($aPrestaShopCustomer->getIdCustomer () == $individuID) {
 					$aPrestaShopCustomer->SQL_UPDATE_CUSTOMER_BY_ID ( $aIndividuAnnuaire );
 					// on supprime les adresses du client
@@ -37,16 +37,16 @@ class PrestashopControler {
 					}
 					$result = '<span style="color:green;font-weight:bold;">Mise à jour enregistrée aves succès :</span>
 							<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 							<br><span style="font-weight:bold;">Id: </span>' . $aIndividuAnnuaire->getIndividuID ();
 				} else
 					$result = '<span style="color:red;font-weight:bold;">Mise à jour impossibe : Le mail ne correspond pas à l\'ID</span>
 							<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-							<br><span style="font-weight:bold;">Mail ciscar.fr : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+							<br><span style="font-weight:bold;">Mail ciscar.fr : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 							<br><span style="font-weight:bold;">Mail ciscar.net : </span>' . $aPrestaShopCustomer->getEmail () . '
 							<br><span style="font-weight:bold;">Id: </span>' . $aIndividuAnnuaire->getIndividuID ();
 			} else {
-				$aPrestaShopCustomer->SQL_SELECT_CUSTOMER_BY_EMAIL ( $aIndividuAnnuaire->getIndividuMail () );
+				$aPrestaShopCustomer->SQL_SELECT_CUSTOMER_BY_EMAIL ( $aIndividuAnnuaire->getindividuLoginRgpd () );
 				if ($aPrestaShopCustomer->getIdCustomer () > 0) {
 					if (! $aPrestaShopCustomer->getDeleted ()) {
 						if (! $aPrestaShopCustomer->getActive ()) {
@@ -68,19 +68,19 @@ class PrestashopControler {
 
 							$result = '<span style="color:green;font-weight:bold;">Remplacement effectué avec succés.</span>
 							<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 							<br><span style="font-weight:bold;">Id ciscar.net : </span>' . $aPrestaShopCustomer->getIdCustomer () . '
 							<span style="color:green;"> remplacé par </span>
 							<span style="font-weight:bold;">Id ciscar.fr : </span>' . $aIndividuAnnuaire->getIndividuID ();
 						} else
 							$result = '<span style="color:red;font-weight:bold;">Remplacement impossible : L\'utilisateur est actif.</span>
 							<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+							<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 							<br><span style="font-weight:bold;">Id ciscar.net: </span>' . $aPrestaShopCustomer->getIdCustomer ();
 					} else
 						$result = '<span style="color:red;font-weight:bold;">Remplacement impossible : L\'utilisateur est supprimé.</span>
 						<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 						<br><span style="font-weight:bold;">Id ciscar.net: </span>' . $aPrestaShopCustomer->getIdCustomer ();
 				} else {
 					if ($aPrestaShopCustomer->getIdCustomer () == 0) {
@@ -98,12 +98,12 @@ class PrestashopControler {
 
 						$result = '<span style="color:green;font-weight:bold;">Création réalisée avec succès.</span>
 						<br><span style="font-weight:bold;">Nom : </span>' . $aIndividuAnnuaire->getIndividuNom () . '
-						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail () . '
+						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd () . '
 						<br><span style="font-weight:bold;">Id ciscar.net: </span>' . $aIndividuAnnuaire->getIndividuID ();
 					} else {
 						print 'Création impossible : Plusieurs individus utilisent cet email.';
 						$result = '<span style="color:red;font-weight:bold;">Création impossible : Plusieurs individus utilisent cet email.</span>
-						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getIndividuMail ();
+						<br><span style="font-weight:bold;">Mail : </span>' . $aIndividuAnnuaire->getindividuLoginRgpd ();
 					}
 				}
 			}

@@ -602,6 +602,7 @@ class IndividuTabView {
 		$aff .= '<tr>';
 		$aff .= '<td>Password</td>';
 		$aff .= '<td><input type="text" value="'.stripslashes ( $this->myIndividu->getPasswordRgpd () ) .'" size="50" class="disabled" MAXLENGTH="50" readonly/></td>';
+		$aff .= '<input type="hidden" id="CryptPasswordRgpd" name="CryptPasswordRgpd" value="'.stripslashes ( $this->myIndividu->getCryptPasswordRgpd () ) .'" />';
 		$aff .= '</tr>';
 
 		$aff .= '<tr>';
@@ -627,6 +628,13 @@ class IndividuTabView {
 		$aff .= '</td>';
 		$aff .= '</tr>';
 		
+		$aff .= '<tr>';
+		$aff .= '	<td width="150">Newsletter</td>';
+		$aff .= '	<td>';
+		$aff .= '		<input type="radio" name="Newsletter" value="1"' . ($this->myIndividu->getNewsletter() == 1 ? ' Checked' : '') . '/>OUI';
+		$aff .= '		<input type="radio" name="Newsletter" value="0"' . ($this->myIndividu->getNewsletter() != 1 ? ' Checked' : '') . '/>NON';
+		$aff .= '	</td>';
+		$aff .= '</tr>';
 		
 		// $aff .= '<tr>';
 		// $aff .= ' <td width="150">Intêrets :</td>';
