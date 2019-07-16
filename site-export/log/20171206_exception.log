@@ -1,0 +1,95 @@
+*ERROR* 	2017/12/06 - 15:22:37: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') order by scg.id_group) as groups_product						
+				FROM `ps_category_product` ' at line 7<br /><br /><pre>SELECT p.*, product_shop.*, stock.out_of_stock, IFNULL(stock.quantity, 0) AS quantity, IFNULL(product_attribute_shop.id_product_attribute, 0) AS id_product_attribute,
+					product_attribute_shop.minimal_quantity AS product_attribute_minimal_quantity, pl.`description`, pl.`description_short`, pl.`available_now`,
+					pl.`available_later`, pl.`link_rewrite`, pl.`meta_description`, pl.`meta_keywords`, pl.`meta_title`, pl.`name`, image_shop.`id_image` id_image,
+					il.`legend` as legend, m.`name` AS manufacturer_name, cl.`name` AS category_default,
+					DATEDIFF(product_shop.`date_add`, DATE_SUB("2017-12-06 00:00:00",
+					INTERVAL 20 DAY)) > 0 AS new, product_shop.price AS orderprice
+					,(select group_concat(scg.id_group) from ps_category_product scp, ps_category_group scg where scp.id_category = scg.id_category and scp.id_product = p.id_product and scp.id_category <> 2 and scg.id_group in() order by scg.id_group) as groups_product						
+				FROM `ps_category_product` cp
+				LEFT JOIN `ps_product` p
+					ON p.`id_product` = cp.`id_product`
+				 INNER JOIN ps_product_shop product_shop
+		ON (product_shop.id_product = p.id_product AND product_shop.id_shop = 1) LEFT JOIN `ps_product_attribute_shop` product_attribute_shop
+				ON (p.`id_product` = product_attribute_shop.`id_product` AND product_attribute_shop.`default_on` = 1 AND product_attribute_shop.id_shop=1)
+				 LEFT JOIN ps_stock_available stock
+			ON (stock.id_product = p.id_product AND stock.id_product_attribute = 0 AND stock.id_shop = 1  AND stock.id_shop_group = 0  )
+				LEFT JOIN `ps_category_lang` cl
+					ON (product_shop.`id_category_default` = cl.`id_category`
+					AND cl.`id_lang` = 1 AND cl.id_shop = 1 )
+				LEFT JOIN `ps_product_lang` pl
+					ON (p.`id_product` = pl.`id_product`
+					AND pl.`id_lang` = 1 AND pl.id_shop = 1 )
+				LEFT JOIN `ps_image_shop` image_shop
+					ON (image_shop.`id_product` = p.`id_product` AND image_shop.cover=1 AND image_shop.id_shop=1)
+				LEFT JOIN `ps_image_lang` il
+					ON (image_shop.`id_image` = il.`id_image`
+					AND il.`id_lang` = 1)
+				LEFT JOIN `ps_manufacturer` m
+					ON m.`id_manufacturer` = p.`id_manufacturer`
+				WHERE product_shop.`id_shop` = 1
+					AND cp.`id_category` = 2 AND product_shop.`active` = 1 AND product_shop.`visibility` IN ("both", "catalog") HAVING groups_product <> '' ORDER BY cp.`position` ASC
+			LIMIT 0,8</pre> at line 835 in file classes/db/Db.php
+*ERROR* 	2017/12/06 - 15:35:43: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') order by scg.id_group) as groups_product
+		FROM `ps_product_sale` ps
+		LEFT JO' at line 7<br /><br /><pre>
+		SELECT
+			p.id_product, IFNULL(product_attribute_shop.id_product_attribute,0) id_product_attribute, pl.`link_rewrite`, pl.`name`, pl.`description_short`, product_shop.`id_category_default`,
+			image_shop.`id_image` id_image, il.`legend`,
+			ps.`quantity` AS sales, p.`ean13`, p.`upc`, p.`reference`, cl.`link_rewrite` AS category, p.show_price, p.available_for_order, IFNULL(stock.quantity, 0) as quantity, p.customizable,
+			IFNULL(pa.minimal_quantity, p.minimal_quantity) as minimal_quantity, stock.out_of_stock,
+			product_shop.`date_add` > "2017-11-16" as new,
+			product_shop.`on_sale`, product_attribute_shop.minimal_quantity AS product_attribute_minimal_quantity,(select group_concat(scg.id_group) from ps_category_product scp, ps_category_group scg where scp.id_category = scg.id_category and scp.id_product = p.id_product and scp.id_category <> 2 and scg.id_group in() order by scg.id_group) as groups_product
+		FROM `ps_product_sale` ps
+		LEFT JOIN `ps_product` p ON ps.`id_product` = p.`id_product`
+		 INNER JOIN ps_product_shop product_shop
+		ON (product_shop.id_product = p.id_product AND product_shop.id_shop = 1)
+		LEFT JOIN `ps_product_attribute_shop` product_attribute_shop
+			ON (p.`id_product` = product_attribute_shop.`id_product` AND product_attribute_shop.`default_on` = 1 AND product_attribute_shop.id_shop=1)
+		LEFT JOIN `ps_product_attribute` pa ON (product_attribute_shop.id_product_attribute=pa.id_product_attribute)
+		LEFT JOIN `ps_product_lang` pl
+			ON p.`id_product` = pl.`id_product`
+			AND pl.`id_lang` = 1 AND pl.id_shop = 1 
+		LEFT JOIN `ps_image_shop` image_shop
+			ON (image_shop.`id_product` = p.`id_product` AND image_shop.cover=1 AND image_shop.id_shop=1)
+		LEFT JOIN `ps_image_lang` il ON (image_shop.`id_image` = il.`id_image` AND il.`id_lang` = 1)
+		LEFT JOIN `ps_category_lang` cl
+			ON cl.`id_category` = product_shop.`id_category_default`
+			AND cl.`id_lang` = 1 AND cl.id_shop = 1  LEFT JOIN ps_stock_available stock
+			ON (stock.id_product = p.id_product AND stock.id_product_attribute = 0 AND stock.id_shop = 1  AND stock.id_shop_group = 0  )
+		WHERE product_shop.`active` = 1
+		AND p.`visibility` != 'none' AND EXISTS(SELECT 1 FROM `ps_category_product` cp
+				JOIN `ps_category_group` cg ON (cp.id_category = cg.id_category AND cg.`id_group` = 1)
+				WHERE cp.`id_product` = p.`id_product`) HAVING groups_product <> ''
+		ORDER BY ps.quantity DESC
+		LIMIT 0, 10</pre> at line 835 in file classes/db/Db.php
+*ERROR* 	2017/12/06 - 16:02:58: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY product_shop.id_product' at line 14<br /><br /><pre>
+			SELECT MAX(image_shop.id_image) id_image, p.id_product, il.legend, product_shop.active, pl.name, pl.description_short, pl.link_rewrite, cl.link_rewrite AS category_rewrite
+			,(select group_concat(scg.id_group) from ps_category_product scp, ps_category_group scg where scp.id_category = scg.id_category and scp.id_product = p.id_product and scp.id_category <> 2 and scg.id_group in(3) order by scg.id_group) as groups_product
+			FROM ps_product p
+			 INNER JOIN ps_product_shop product_shop
+		ON (product_shop.id_product = p.id_product AND product_shop.id_shop = 1)
+			LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product AND pl.id_shop = 1 )
+			LEFT JOIN ps_image i ON (i.id_product = p.id_product) LEFT JOIN ps_image_shop image_shop
+		ON (image_shop.id_image = i.id_image AND image_shop.id_shop = 1 AND image_shop.cover=1)
+			LEFT JOIN ps_image_lang il ON (il.id_image = image_shop.id_image AND il.id_lang = 1)
+			LEFT JOIN ps_category_lang cl ON (cl.id_category = product_shop.id_category_default AND cl.id_shop = 1 )
+			WHERE p.id_product IN (156,110)
+			AND pl.id_lang = 1
+			AND cl.id_lang = 1 HAVING groups_product <> ''
+			GROUP BY product_shop.id_product</pre> at line 835 in file classes/db/Db.php
+*ERROR* 	2017/12/06 - 16:04:28: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY product_shop.id_product' at line 14<br /><br /><pre>
+			SELECT MAX(image_shop.id_image) id_image, p.id_product, il.legend, product_shop.active, pl.name, pl.description_short, pl.link_rewrite, cl.link_rewrite AS category_rewrite
+			,(select group_concat(scg.id_group) from ps_category_product scp, ps_category_group scg where scp.id_category = scg.id_category and scp.id_product = p.id_product and scp.id_category <> 2 and scg.id_group in(3) order by scg.id_group) as groups_product
+			FROM ps_product p
+			 INNER JOIN ps_product_shop product_shop
+		ON (product_shop.id_product = p.id_product AND product_shop.id_shop = 1)
+			LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product AND pl.id_shop = 1 )
+			LEFT JOIN ps_image i ON (i.id_product = p.id_product) LEFT JOIN ps_image_shop image_shop
+		ON (image_shop.id_image = i.id_image AND image_shop.id_shop = 1 AND image_shop.cover=1)
+			LEFT JOIN ps_image_lang il ON (il.id_image = image_shop.id_image AND il.id_lang = 1)
+			LEFT JOIN ps_category_lang cl ON (cl.id_category = product_shop.id_category_default AND cl.id_shop = 1 )
+			WHERE p.id_product IN (156,110)
+			AND pl.id_lang = 1
+			AND cl.id_lang = 1 HAVING groups_product <> ''
+			GROUP BY product_shop.id_product</pre> at line 835 in file classes/db/Db.php

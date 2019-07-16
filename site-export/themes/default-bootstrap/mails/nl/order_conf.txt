@@ -1,0 +1,50 @@
+[/{shop_url}] 
+
+Hallo {firstname} {lastname},
+
+Bedankt voor het winkelen bij {shop_name}! 
+
+BESTELLING: {id_order_num} Geplaatst op {date}
+	 
+
+REFERENTIE
+
+PRODUCT
+
+STUKPRIJS
+
+AANTAL
+
+TOTAALPRIJS
+
+{products_txt} 
+
+{discounts} 
+
+VERZENDING 
+
+{carrier} 
+
+
+TOTAAL EXCL. BTW 
+
+{total_paid} 
+
+OPVOLGING VAN UW BESTELLING
+
+Het totaalbedrag van uw bestelling zal u binnen 24uur bevestigd worden (incl. verzendkosten, btw kosten, enz.).	
+Na uw akkoord op het definitieve bedrag van de bestelling ontvangt u een factuur met onze bankgegevens voor het betalen via bankoverschrijving.
+
+{delivery_block_txt} 
+
+{invoice_block_txt} 
+
+U kunt uw bestelling bekijken vanuit de
+sectie \"Bestelgeschiedenis\" [/{history_url}] op de klantportal, door
+te klikken op de link \"Mijn account\" [/{my_account_url}] in onze
+winkel. 
+
+U wilt meer informatie ? Neem contact met ons op via telefoon + 32 (0)2 588 88 23 of email infos@ciscar.net
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797
+

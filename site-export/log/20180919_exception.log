@@ -1,0 +1,7 @@
+*ERROR* 	2018/09/19 - 09:58:38: Unknown column 'tc.id_item' in 'where clause'<br /><br /><pre>
+		SELECT *
+		FROM `ps_themeconfigurator`
+		WHERE id_shop = 1 AND id_lang = 7
+		AND hook = 'home' AND active = 1
+		AND tc.id_item in (SELECT id_item from ps_themeconfigurator_group where id_group in (3,5) and id_item = tc.id_item)
+		ORDER BY item_order ASC</pre> at line 835 in file classes/db/Db.php

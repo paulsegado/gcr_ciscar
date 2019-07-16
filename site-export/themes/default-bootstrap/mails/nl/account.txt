@@ -1,0 +1,15 @@
+[/{shop_url}] 
+
+Hallo {firstname} {lastname},
+
+Bedankt voor het aanmaken van uw klantaccount bij {shop_name}. 
+
+Uw account wordt geactiveerd... 
+
+ Binnenkort ontvangt u een email met uw inloggegevens. 
+
+
+Tot snel op {shop_name} [/{shop_url}] 
+
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797

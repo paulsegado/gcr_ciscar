@@ -1,0 +1,13 @@
+﻿[/{shop_url}] 
+
+Message de la part d\'un client de {shop_name} 
+
+ADRESSE E-MAIL DU CLIENT : {email}
+
+MESSAGE DU CLIENT : {message}
+
+COMMANDE # : {id_order_num}
+
+PIÈCE JOINTE : {attached_file} 		 
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797

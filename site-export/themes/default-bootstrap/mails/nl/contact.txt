@@ -1,0 +1,14 @@
+[/{shop_url}] 
+
+Bericht van een {shop_name} klant 
+
+E-MAILADRES VAN KLANT: {email}
+
+KLANTBERICHT: {message}
+
+ORDERNUMMER: {id_order_num}
+
+BIJLAGE: {attached_file} 		 
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797 
+

@@ -1,0 +1,14 @@
+*ERROR* 	2017/12/08 - 09:51:16: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6<br /><br /><pre>
+		SELECT *
+		FROM `ps_themeconfigurator tc`
+		WHERE id_shop = 1 AND id_lang = 1
+		AND hook = 'home' AND active = 1
+		AND tc.id_item in (SELECT id_item from ps_themeconfigurator_group where id_group in (3 and id_item = tc.id_item)
+		ORDER BY item_order ASC</pre> at line 835 in file classes/db/Db.php
+*ERROR* 	2017/12/08 - 09:52:11: Table 'prestashop.ps_themeconfigurator tc' doesn't exist<br /><br /><pre>
+		SELECT *
+		FROM `ps_themeconfigurator tc`
+		WHERE id_shop = 1 AND id_lang = 1
+		AND hook = 'home' AND active = 1
+		AND tc.id_item in (SELECT id_item from ps_themeconfigurator_group where id_group in (3) and id_item = tc.id_item)
+		ORDER BY item_order ASC</pre> at line 835 in file classes/db/Db.php

@@ -1,0 +1,9 @@
+﻿
+[/{shop_url}] 
+
+Bonjour {firstname} {lastname},
+
+Merci d\'avoir créé votre compte client sur {shop_name}. Votre compte est en cours d\'activation...		 A très bientôt sur :
+{shop_name} [/{shop_url}] 
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797 

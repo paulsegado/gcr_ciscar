@@ -1,0 +1,9 @@
+*ERROR* 	2017/08/31 - 10:59:23: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:01:33: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:01:48: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:01:58: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:02:00: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:02:00: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:02:00: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:02:00: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php
+*ERROR* 	2017/08/31 - 11:02:01: Link to database cannot be established:SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) at line 102 in file classes/db/DbPDO.php

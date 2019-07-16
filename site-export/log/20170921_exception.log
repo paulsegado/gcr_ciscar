@@ -1,0 +1,2 @@
+*ERROR* 	2017/09/21 - 06:54:13: Link to database cannot be established:SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ at line 102 in file classes/db/DbPDO.php

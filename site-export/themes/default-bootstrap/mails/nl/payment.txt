@@ -1,0 +1,18 @@
+[/{shop_url}] 
+
+Hallo {firstname} {lastname},
+
+Tot snel voor uw inkopen bij {shop_name}! 
+
+Bedankt voor het valideren van uw bestelling {id_order_num}
+
+Uw bestelling wordt zo snel mogelijk verzonden.
+U ontvangt binnenkort de factuur met onze bankgegevens voor het betalen via bankoverschrijving. 
+
+
+U kunt uw bestelling bekijken vanuit de sectie \"Bestelgeschiedenis\" [/{history_url}] op de klantportal, door te klikken op de link \"Mijn account\" [/{my_account_url}] in onze
+winkel. 
+
+U wilt meer informatie ? Neem contact met ons op via telefoon + 32 (0)2 588 88 23 of email infos@ciscar.net
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797

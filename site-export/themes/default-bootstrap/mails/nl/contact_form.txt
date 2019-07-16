@@ -1,0 +1,18 @@
+[/{shop_url}] 
+
+Uw bericht is succesvol verzonden aan {shop_name} klantenservice. 
+
+Uw bericht is succesvol verzonden.
+
+BERICHT: {message}
+
+ORDERNUMMER: {id_order_num}
+
+PRODUCT: {product_name}
+
+BIJLAGE: {attached_file} 		 
+
+We zullen zo spoedig mogelijk antwoorden. 
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797
+

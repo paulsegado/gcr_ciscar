@@ -1,0 +1,43 @@
+﻿
+[/{shop_url}] 
+
+Bonjour {firstname} {lastname},
+
+Merci d'avoir commandé sur {shop_name}! 
+
+COMMANDE : {id_order_num} passée le {date}
+
+RÉFÉRENCE
+
+PRODUIT
+
+PRIX UNITAIRE
+
+QUANTITÉ
+
+PRIX TOTAL
+
+{products_txt} 
+
+LIVRAISON 
+
+{carrier}
+
+TOTAL PAYÉ 
+
+{total_paid} 
+Suivi de commande 
+Le montant total à régler vous sera communiqué dans les 24h par nos services (taxes, frais de port, frais de douane, etc). 
+Après acceptation de votre part du montant total à régler, une facture vous sera envoyée avec les coordonnées bancaires pour effectuer votre virement.
+
+{delivery_block_txt} 
+
+{invoice_block_txt} 
+
+Vous pouvez accéder à tout moment au suivi de votre commande dans \"Historique des commandes\"
+[/{history_url}] de la rubrique \"Mon compte\" [/{my_account_url}] sur
+notre site. 
+
+Pour toute question, contactez-nous à infos@ciscar.net ou au +32 (0)2 588 88 23.
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797

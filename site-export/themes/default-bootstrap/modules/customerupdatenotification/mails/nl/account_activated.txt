@@ -1,0 +1,17 @@
+[/{shop_url}] 
+
+{firstname} {lastname}, Log in op www.ciscar.net. 
+
+
+Uw login gegevens :
+
+E-mail adres : {email} 
+
+Wachtwoord : {pwdclear} 
+
+
+
+U kunt vanaf nu uw bestelling plaatsen in onze winkel : {shop_name} [/{shop_url}] 
+
+
+{shop_name} [/{shop_url}] - TVA CEE : FR 42 327 643 797

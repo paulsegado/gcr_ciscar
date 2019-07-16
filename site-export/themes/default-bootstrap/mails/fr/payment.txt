@@ -1,0 +1,17 @@
+﻿
+[/{shop_url}] 
+
+Bonjour {firstname} {lastname},
+
+A bientôt pour vos achats sur {shop_name}! 
+
+Merci d\'avoir validé votre commande n° {id_order_num} 
+Votre commande sera expédiée dans les meilleurs délais.
+Prochainement une facture vous sera envoyée avec les coordonnées bancaires pour effectuer votre virement.
+Vous pouvez accéder à tout moment au suivi de votre commande  dans \"Historique des commandes\"
+[/{history_url}] de la rubrique \"Mon compte\" [/{my_account_url}] sur
+notre site. 
+
+Pour toute question, contactez-nous à infos@ciscar.net ou au +32 (0)2 588 88 23.
+
+{shop_name} [/{shop_url}]  - TVA CEE : FR 42 327 643 797

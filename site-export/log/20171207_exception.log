@@ -1,0 +1,7 @@
+*ERROR* 	2017/12/07 - 10:04:23: Unknown column 'hsg.id_group' in 'field list'<br /><br /><pre>
+			SELECT hsg.`id_group`
+			FROM ps_homeslider_slides_group cg
+			WHERE hsg.`id_homeslider_slides` = 1</pre> at line 835 in file classes/db/Db.php
+*ERROR* 	2017/12/07 - 16:49:03: Incorrect table name 'ps_themeconfigurator_group '<br /><br /><pre>
+					SELECT * FROM `ps_themeconfigurator_group `
+					ORDER BY id_item,id_group ASC</pre> at line 835 in file classes/db/Db.php

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://www.prestashop.com/fr/blog/feed.xml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:og="http://ogp.me/ns#" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" xmlns:product="http://ogp.me/ns/product#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <channel>
+    <title>Blog Feed</title>
+    <link>https://www.prestashop.com/fr/blog/feed.xml</link>
+    <description></description>
+    <language>fr</language>
+     <atom:link href="https://www.prestashop.com/fr/blog/feed.xml" rel="self" type="application/rss+xml" />
+      <item>
+    <title>Nouveaux sites e-commerce : comment gagner la confiance de vos clients ?</title>
+    <link>https://www.prestashop.com/fr/blog/comment-gagner-la-confiance-de-vos-clients</link>
+    <description>En tant que nouvel e-commerçant, il n’est pas simple de s’imposer sur la toile où la concurrence est accrue, rude et agressive.</description>
+     <pubDate>Fri, 19 Apr 2019 10:54:47 +0200</pubDate>
+ <dc:creator>YATEO</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/comment-gagner-la-confiance-de-vos-clients</guid>
+  </item>
+  <item>
+    <title>Du nouveau chez PrestaShop ! Quelles sont les actualités ?</title>
+    <link>https://www.prestashop.com/fr/blog/nouveautes-actualites-prestashop-2019</link>
+    <description>On dit souvent qu’une image vaut mille mots.</description>
+     <pubDate>Thu, 18 Apr 2019 16:42:44 +0200</pubDate>
+ <dc:creator>Méguy Solvet</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/nouveautes-actualites-prestashop-2019</guid>
+  </item>
+  <item>
+    <title>Performance web – ce qui frustre réellement l’internaute ?</title>
+    <link>https://www.prestashop.com/fr/blog/performance-web-ce-qui-frustre-l-internaute</link>
+    <description>Comment profiter des tout récents indicateurs web pour mieux mesurer le ressenti des internautes concernant les performances web et augmenter rapidement son taux de conversion ?</description>
+     <pubDate>Fri, 12 Apr 2019 10:55:04 +0200</pubDate>
+ <dc:creator>Quadran</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/performance-web-ce-qui-frustre-l-internaute</guid>
+  </item>
+  <item>
+    <title>Fulfilment : la solution logistique simplifiée</title>
+    <link>https://www.prestashop.com/fr/blog/fulfilment-solution-logistique-simplifiee</link>
+    <description>Vendre, c&#039;est bien, mais ce n’est que la première phase de la relation client. La seconde, et non la moindre, consiste à livrer et gérer l’après-vente.</description>
+     <pubDate>Fri, 12 Apr 2019 10:31:45 +0200</pubDate>
+ <dc:creator>prestashop-partners</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/fulfilment-solution-logistique-simplifiee</guid>
+  </item>
+  <item>
+    <title>Comment les avis clients améliorent-ils le référencement ?</title>
+    <link>https://www.prestashop.com/fr/blog/comment-les-avis-clients-ameliorent-le-referencement</link>
+    <description>De plus en plus d’utilisateurs s’attardent sur les avis clients avant de passer à l’achat d’un produit sur le web.</description>
+     <pubDate>Wed, 10 Apr 2019 10:59:05 +0200</pubDate>
+ <dc:creator>YATEO</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/comment-les-avis-clients-ameliorent-le-referencement</guid>
+  </item>
+  <item>
+    <title>Comment créer un blog efficace ? 5 tips à mettre en place</title>
+    <link>https://www.prestashop.com/fr/blog/creer-un-blog-efficace</link>
+    <description>Lancer un site e-commerce est un défi, générer du trafic est un autre challenge.</description>
+     <pubDate>Mon, 08 Apr 2019 11:15:34 +0200</pubDate>
+ <dc:creator>YATEO</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/creer-un-blog-efficace</guid>
+  </item>
+  <item>
+    <title>PrestaShop améliore la stabilité de la version 1.7</title>
+    <link>https://www.prestashop.com/fr/blog/stabilite-version-1-7</link>
+    <description>La dernière version de PrestaShop a été lancée en décembre 2018.</description>
+     <pubDate>Fri, 05 Apr 2019 11:06:59 +0200</pubDate>
+ <dc:creator>MLNielsen</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/stabilite-version-1-7</guid>
+  </item>
+  <item>
+    <title>SEO tout ce qui change : SXO, IA, Featured Snippets, PPA et recherche vocale</title>
+    <link>https://www.prestashop.com/fr/blog/seo-tout-ce-qui-change</link>
+    <description>Avec l’augmentation des requêtes sur mobile et le développement des recherches vocales, comment évolue le SEO ?</description>
+     <pubDate>Fri, 05 Apr 2019 10:46:09 +0200</pubDate>
+ <dc:creator>MLNielsen</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/seo-tout-ce-qui-change</guid>
+  </item>
+  <item>
+    <title>5 astuces pour préparer votre boutique en ligne pour les soldes</title>
+    <link>https://www.prestashop.com/fr/blog/preparer-votre-boutique-en-ligne-pour-les-soldes</link>
+    <description>Depuis 10 ans, les soldes font partie des grands temps forts du e-commerce.</description>
+     <pubDate>Mon, 01 Apr 2019 14:30:05 +0200</pubDate>
+ <dc:creator>Vaisonet</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/preparer-votre-boutique-en-ligne-pour-les-soldes</guid>
+  </item>
+  <item>
+    <title>Les fonctionnalités clés pour se démarquer en 2019</title>
+    <link>https://www.prestashop.com/fr/blog/fonctionnalites-cles-pour-se-demarquer</link>
+    <description>La concurrence e-commerce s&#039;accroît d’année en année : entre 2017 et 2018, le nombre de boutiques en ligne actives en France a augmenté de 9 000 d’après la Fevad, passant de 173 000 à 182 000.</description>
+     <pubDate>Fri, 29 Mar 2019 11:20:19 +0100</pubDate>
+ <dc:creator>PayPlug</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/fr/blog/fonctionnalites-cles-pour-se-demarquer</guid>
+  </item>
+  </channel>
+</rss>

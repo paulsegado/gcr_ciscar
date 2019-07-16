@@ -1,0 +1,5 @@
+Votre compte a été activé sur {shopname}.
+
+Login : {email}
+
+{shop_url}
